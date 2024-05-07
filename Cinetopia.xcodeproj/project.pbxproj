@@ -12,6 +12,8 @@
 		33B68A9A2BEA5E9A004E51B5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B68A992BEA5E9A004E51B5 /* ViewController.swift */; };
 		33B68A9F2BEA5E9C004E51B5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 33B68A9E2BEA5E9C004E51B5 /* Assets.xcassets */; };
 		33B68AA22BEA5E9C004E51B5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33B68AA02BEA5E9C004E51B5 /* LaunchScreen.storyboard */; };
+		33B68AAB2BEA79BF004E51B5 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B68AAA2BEA79BF004E51B5 /* SplashViewController.swift */; };
+		33B68AAE2BEA79FA004E51B5 /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B68AAD2BEA79FA004E51B5 /* SplashScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		33B68A9E2BEA5E9C004E51B5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		33B68AA12BEA5E9C004E51B5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		33B68AA32BEA5E9C004E51B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		33B68AAA2BEA79BF004E51B5 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		33B68AAD2BEA79FA004E51B5 /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +58,7 @@
 		33B68A942BEA5E9A004E51B5 /* Cinetopia */ = {
 			isa = PBXGroup;
 			children = (
+				33B68AA92BEA798C004E51B5 /* Splash */,
 				33B68A952BEA5E9A004E51B5 /* AppDelegate.swift */,
 				33B68A972BEA5E9A004E51B5 /* SceneDelegate.swift */,
 				33B68A992BEA5E9A004E51B5 /* ViewController.swift */,
@@ -62,6 +67,23 @@
 				33B68AA32BEA5E9C004E51B5 /* Info.plist */,
 			);
 			path = Cinetopia;
+			sourceTree = "<group>";
+		};
+		33B68AA92BEA798C004E51B5 /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				33B68AAA2BEA79BF004E51B5 /* SplashViewController.swift */,
+				33B68AAC2BEA79D2004E51B5 /* SplashScreen */,
+			);
+			path = Splash;
+			sourceTree = "<group>";
+		};
+		33B68AAC2BEA79D2004E51B5 /* SplashScreen */ = {
+			isa = PBXGroup;
+			children = (
+				33B68AAD2BEA79FA004E51B5 /* SplashScreen.swift */,
+			);
+			path = SplashScreen;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -134,9 +156,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				33B68AAE2BEA79FA004E51B5 /* SplashScreen.swift in Sources */,
 				33B68A9A2BEA5E9A004E51B5 /* ViewController.swift in Sources */,
 				33B68A962BEA5E9A004E51B5 /* AppDelegate.swift in Sources */,
 				33B68A982BEA5E9A004E51B5 /* SceneDelegate.swift in Sources */,
+				33B68AAB2BEA79BF004E51B5 /* SplashViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

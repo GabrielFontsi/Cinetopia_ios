@@ -20,7 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: windowScene)
         //Aqui, uma instância de UIWindow é criada usando a UIWindowScene obtida anteriormente. Esta é a janela principal do aplicativo, que é onde todo o conteúdo do aplicativo será exibido.
         
-        window?.rootViewController = UINavigationController(rootViewController: ViewController())
+        window?.rootViewController = UINavigationController(rootViewController: SplashViewController())
         //Aqui, estamos configurando o controlador de visualização raiz (rootViewController) da janela. Estamos envolvendo nosso ViewController em um UINavigationController (controlador de navegação) para fornecer navegação entre diferentes telas no aplicativo. Isso é útil se o aplicativo tiver várias telas que os usuários podem percorrer.
         
         window?.makeKeyAndVisible()
