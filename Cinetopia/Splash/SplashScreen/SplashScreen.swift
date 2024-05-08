@@ -12,7 +12,13 @@ protocol SplashScreenProtocol: class {
 }
 
 class SplashScreen: UIView {
-
+    
+    weak private var delegate: SplashScreenProtocol?
+    
+    func delegate(delegate: SplashScreenProtocol?){
+        self.delegate = delegate
+    }
+    
     lazy var logoImageView: UIImageView = {
         let image = UIImageView(image: UIImage(named: "Logo"))
         image.translatesAutoresizingMaskIntoConstraints = false
@@ -75,7 +81,7 @@ class SplashScreen: UIView {
     }
     
     @objc private func welcomeButtonPressed(){
-        actionWelcomeButton()
+        self.delegate?.actionWelcomeButton()
     }
     
     private func setupConstraints(){
@@ -97,10 +103,4 @@ class SplashScreen: UIView {
     
 }
 
-extension SplashScreen: SplashScreenProtocol {
-    func actionWelcomeButton() {
-        print("caiu na funcao, deu bom")
-    }
-    
-    
-}
+
