@@ -13,17 +13,22 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-      
+        
         guard let windowScene = (scene as? UIWindowScene) else { return }
+        window = UIWindow(windowScene: windowScene)
+        window?.rootViewController = UINavigationController(rootViewController: SplashViewController())
+        window?.makeKeyAndVisible()
+      
+        //guard let windowScene = (scene as? UIWindowScene) else { return }
         //Esta linha de código verifica se a cena (scene) passada para a função é realmente uma UIWindowScene, que é necessária para criar uma janela na tela do dispositivo. Se não for, o código dentro do bloco {} é executado, e provavelmente a função retorna, abortando a inicialização.
         
-        window = UIWindow(windowScene: windowScene)
+        //window = UIWindow(windowScene: windowScene)
         //Aqui, uma instância de UIWindow é criada usando a UIWindowScene obtida anteriormente. Esta é a janela principal do aplicativo, que é onde todo o conteúdo do aplicativo será exibido.
         
-        window?.rootViewController = UINavigationController(rootViewController: SplashViewController())
+        //window?.rootViewController = UINavigationController(rootViewController: SplashViewController())
         //Aqui, estamos configurando o controlador de visualização raiz (rootViewController) da janela. Estamos envolvendo nosso ViewController em um UINavigationController (controlador de navegação) para fornecer navegação entre diferentes telas no aplicativo. Isso é útil se o aplicativo tiver várias telas que os usuários podem percorrer.
         
-        window?.makeKeyAndVisible()
+        //window?.makeKeyAndVisible()
         //Finalmente, estamos tornando a janela visível e chave (key window), o que significa que ela será a janela principal com a qual o usuário interage. Sem isso, a janela pode ser criada, mas não será exibida na tela do dispositivo.
     }
 

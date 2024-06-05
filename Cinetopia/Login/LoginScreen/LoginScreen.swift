@@ -13,6 +13,18 @@ protocol LoginScreenProtocol: class {
 }
 
 class LoginScreen: UIView {
+    
+    weak private var delegate: LoginScreenProtocol?
+    
+    func delegate(delegate: LoginScreenProtocol?){
+        self.delegate = delegate
+    }
+    
+    public func configTextFieldDelegate(delegate: UITextFieldDelegate){
+        self.emailTextField.delegate = delegate
+        self.passwordTextField.delegate = delegate
+    }
+        
 
     lazy var logoImageView: UIImageView = {
         let image = UIImageView(image: UIImage(named: "Logo"))
@@ -29,6 +41,9 @@ class LoginScreen: UIView {
         textField.borderStyle = .roundedRect
         textField.keyboardType = .emailAddress
         textField.placeholder = "Digite seu e-mail"
+        
+        textField.text = "Emailteste@gmail.com"
+        
         textField.textColor = UIColor(named: "BackgroundColor")
        
         textField.layer.shadowColor = UIColor.black.cgColor
@@ -47,6 +62,9 @@ class LoginScreen: UIView {
         textField.borderStyle = .roundedRect
         textField.isSecureTextEntry = true
         textField.placeholder = "Digite sua senha"
+        
+        textField.text = "1234567"
+        
         textField.textColor = UIColor(named: "BackgroundColor")
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.layer.shadowColor = UIColor.black.cgColor
@@ -89,6 +107,7 @@ class LoginScreen: UIView {
         self.setupBackground()
         self.setupLayout()
         self.setupConstraints()
+        self.configButtonEnable(false)
     }
     
     required init?(coder: NSCoder) {
@@ -107,12 +126,41 @@ class LoginScreen: UIView {
         self.addSubview(self.registerButton)
     }
     
+    public func validTextField(){
+        let email: String = self.emailTextField.text ?? ""
+        let password: String = self.passwordTextField.text ?? ""
+        
+        if !email.isEmpty && !password.isEmpty {
+            self.configButtonEnable(true)
+        } else {
+            self.configButtonEnable(false)
+        }
+    }
+    
+    private func configButtonEnable(_ enable: Bool){
+        if enable {
+            self.loginButton.setTitleColor(.white, for: .normal)
+            self.loginButton.isEnabled = true
+        }else {
+            self.loginButton.setTitleColor(.lightGray, for: .normal)
+            self.loginButton.isEnabled = false
+        }
+    }
+    
+    public func getEmail() -> String {
+        return self.emailTextField.text ?? ""
+    }
+    
+    public func getPassword() -> String {
+        return self.passwordTextField.text ?? ""
+    }
+    
     private func setupConstraints(){
         NSLayoutConstraint.activate([
             self.logoImageView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 12),
             self.logoImageView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            self.logoImageView.heightAnchor.constraint(equalToConstant: 60),
-            self.logoImageView.widthAnchor.constraint(equalToConstant: 60),
+            self.logoImageView.heightAnchor.constraint(equalToConstant: 70),
+            self.logoImageView.widthAnchor.constraint(equalToConstant: 70),
             
             self.emailTextField.topAnchor.constraint(equalTo: self.logoImageView.bottomAnchor, constant: 32),
             self.emailTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 18),
@@ -147,23 +195,12 @@ class LoginScreen: UIView {
     }
     
     @objc private func tapLoginButton(){
-       actionLoginButton()
+        self.delegate?.actionLoginButton()
     }
     
     @objc private func tapRegisterButton(){
-        actionRegisterButton()
+        self.delegate?.actionRegisterButton()
     }
     
 }
 
-extension LoginScreen: LoginScreenProtocol {
-    func actionRegisterButton() {
-        
-    }
-    
-    func actionLoginButton() {
-        
-    }
-    
-    
-}
