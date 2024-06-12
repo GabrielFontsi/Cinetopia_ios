@@ -21,7 +21,6 @@ class MenuCellScreen: UIView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .systemFont(ofSize: 18, weight: .semibold)
-        label.textAlignment = .center
         label.textColor = .black
         
         return label
@@ -44,16 +43,13 @@ class MenuCellScreen: UIView {
     
     private func setupConstrainsts(){
         NSLayoutConstraint.activate([
-            //self.iconImageView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            self.iconImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 25),
+            self.iconImageView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
             self.iconImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 18),
             self.iconImageView.heightAnchor.constraint(equalToConstant: 20),
             self.iconImageView.widthAnchor.constraint(equalToConstant: 20),
             
-            //self.nameIconLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-            self.nameIconLabel.leadingAnchor.constraint(equalTo: self.iconImageView.trailingAnchor, constant: 18),
-            self.nameIconLabel.centerYAnchor.constraint(equalTo: self.iconImageView.centerYAnchor)
-
+            self.nameIconLabel.centerYAnchor.constraint(equalTo: self.iconImageView.centerYAnchor),
+            self.nameIconLabel.leadingAnchor.constraint(equalTo: self.iconImageView.trailingAnchor, constant: 9)
         ])
     }
 }
