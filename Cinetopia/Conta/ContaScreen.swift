@@ -34,6 +34,14 @@ class ContaScreen: UIView {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Abrir biblioteca", for: .normal)
         button.setTitleColor(UIColor.black, for: .normal)
+        button.layer.cornerRadius = 5
+        
+        button.layer.shadowColor = UIColor.black.cgColor
+        button.layer.shadowOffset = CGSize(width: 0, height: 2)
+        button.layer.shadowOpacity = 0.4
+        button.layer.shadowRadius = 3.0
+        button.layer.masksToBounds = false
+        
         button.backgroundColor = UIColor.white
         button.addTarget(self, action: #selector(tapLibriryPhotoButton), for: .touchUpInside)
         return button
@@ -44,8 +52,18 @@ class ContaScreen: UIView {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Abrir camera", for: .normal)
         button.setTitleColor(UIColor.black, for: .normal)
+        button.layer.cornerRadius = 5
+        
+        button.layer.shadowColor = UIColor.black.cgColor
+        button.layer.shadowOffset = CGSize(width: 0, height: 2)
+        button.layer.shadowOpacity = 0.4
+        button.layer.shadowRadius = 3.0
+        button.layer.masksToBounds = false
+        
         button.backgroundColor = UIColor.white
         button.addTarget(self, action: #selector(tapCameraPhotoButton), for: .touchUpInside)
+       
+        
         return button
     }()
     
@@ -55,7 +73,7 @@ class ContaScreen: UIView {
         textField.autocorrectionType = .no
         textField.backgroundColor = .white
         textField.keyboardType = .emailAddress
-      
+        textField.borderStyle = .roundedRect
         textField.layer.shadowColor = UIColor.black.cgColor
         textField.layer.shadowOffset = CGSize(width: 0, height: 2)
         textField.layer.shadowOpacity = 0.4
@@ -73,7 +91,7 @@ class ContaScreen: UIView {
         textField.isSecureTextEntry = true
         textField.placeholder = "Digite sua senha"
         textField.textColor = UIColor(named: "BackgroundColor")
-        textField.translatesAutoresizingMaskIntoConstraints = false
+        
         textField.layer.shadowColor = UIColor.black.cgColor
         textField.layer.shadowOffset = CGSize(width: 0, height: 2)
         textField.layer.shadowOpacity = 0.4
@@ -121,8 +139,6 @@ class ContaScreen: UIView {
     private func setupLayout(){
         self.addSubview(self.imagePerfilUIimageView)
         self.addSubview(self.stackView)
-//        self.addSubview(self.libraryPhotoButton)
-//        self.addSubview(self.cameraPhotoButton)
         self.addSubview(self.emailTextField)
         self.addSubview(self.passwordTextField)
         self.addSubview(self.saveInformationButton)
@@ -137,12 +153,10 @@ class ContaScreen: UIView {
             self.imagePerfilUIimageView.heightAnchor.constraint(equalToConstant: 120),
             
             self.stackView.topAnchor.constraint(equalTo: self.imagePerfilUIimageView.bottomAnchor, constant: 18),
-            //self.stackView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             self.stackView.heightAnchor.constraint(equalToConstant: 55),
             self.stackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 12),
             self.stackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -12),
     
-            
 //            self.libraryPhotoButton.topAnchor.constraint(equalTo: self.imagePerfilUIimageView.bottomAnchor, constant: 18),
 //            self.libraryPhotoButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 12),
 //            self.libraryPhotoButton.trailingAnchor.constraint(equalTo: self.cameraPhotoButton.leadingAnchor, constant: 12),
