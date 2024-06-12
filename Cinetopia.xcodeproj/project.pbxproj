@@ -28,6 +28,8 @@
 		33B68AA22BEA5E9C004E51B5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33B68AA02BEA5E9C004E51B5 /* LaunchScreen.storyboard */; };
 		33B68AAB2BEA79BF004E51B5 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B68AAA2BEA79BF004E51B5 /* SplashViewController.swift */; };
 		33B68AAE2BEA79FA004E51B5 /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B68AAD2BEA79FA004E51B5 /* SplashScreen.swift */; };
+		33C7EA462C19DE50000AC255 /* ContaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C7EA452C19DE50000AC255 /* ContaViewController.swift */; };
+		33C7EA482C19DE60000AC255 /* ContaScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C7EA472C19DE60000AC255 /* ContaScreen.swift */; };
 		33FCB7092C05157400ECF113 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FCB7082C05157400ECF113 /* HomeViewController.swift */; };
 		33FCB70B2C05159100ECF113 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FCB70A2C05159100ECF113 /* HomeScreen.swift */; };
 		50A45886FAB8490CC79F822B /* Pods_Cinetopia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 899F6E45B340B5A3B2583056 /* Pods_Cinetopia.framework */; };
@@ -58,6 +60,8 @@
 		33B68AA32BEA5E9C004E51B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		33B68AAA2BEA79BF004E51B5 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		33B68AAD2BEA79FA004E51B5 /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
+		33C7EA452C19DE50000AC255 /* ContaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContaViewController.swift; sourceTree = "<group>"; };
+		33C7EA472C19DE60000AC255 /* ContaScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContaScreen.swift; sourceTree = "<group>"; };
 		33FCB7082C05157400ECF113 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		33FCB70A2C05159100ECF113 /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
 		899F6E45B340B5A3B2583056 /* Pods_Cinetopia.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cinetopia.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -104,17 +108,10 @@
 		33A0B9EE2C0681570024761F /* MovieCell */ = {
 			isa = PBXGroup;
 			children = (
+				33A0B9F22C06893E0024761F /* MovieCellScreen.swift */,
 				33A0B9EF2C06819B0024761F /* MoviesViewTableViewCell.swift */,
 			);
 			path = MovieCell;
-			sourceTree = "<group>";
-		};
-		33A0B9F12C0689170024761F /* CustomView */ = {
-			isa = PBXGroup;
-			children = (
-				33A0B9F22C06893E0024761F /* MovieCellScreen.swift */,
-			);
-			path = CustomView;
 			sourceTree = "<group>";
 		};
 		33A0B9F42C0A17BA0024761F /* Models */ = {
@@ -199,11 +196,10 @@
 		33B68A942BEA5E9A004E51B5 /* Cinetopia */ = {
 			isa = PBXGroup;
 			children = (
+				33C7EA442C19DD8A000AC255 /* Conta */,
 				33A0B9F42C0A17BA0024761F /* Models */,
 				33A0B9EB2C060A570024761F /* TabBar */,
 				3389165E2BFFC7D300C5B75E /* Alert */,
-				33A0B9F12C0689170024761F /* CustomView */,
-				33A0B9EE2C0681570024761F /* MovieCell */,
 				33A658E12C0FA7AA00A60536 /* Perfil */,
 				33FCB7072C05152000ECF113 /* Home */,
 				33A4C4A42BEE716C0035F540 /* Register */,
@@ -236,11 +232,21 @@
 			path = SplashScreen;
 			sourceTree = "<group>";
 		};
+		33C7EA442C19DD8A000AC255 /* Conta */ = {
+			isa = PBXGroup;
+			children = (
+				33C7EA452C19DE50000AC255 /* ContaViewController.swift */,
+				33C7EA472C19DE60000AC255 /* ContaScreen.swift */,
+			);
+			path = Conta;
+			sourceTree = "<group>";
+		};
 		33FCB7072C05152000ECF113 /* Home */ = {
 			isa = PBXGroup;
 			children = (
 				33FCB7082C05157400ECF113 /* HomeViewController.swift */,
 				33FCB70C2C05159800ECF113 /* HomeScreen */,
+				33A0B9EE2C0681570024761F /* MovieCell */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -389,6 +395,7 @@
 				33B2DE4A2BEABB4700A8D32A /* LoginViewController.swift in Sources */,
 				33B68AAE2BEA79FA004E51B5 /* SplashScreen.swift in Sources */,
 				33A658E62C0FA82800A60536 /* MenuScreen.swift in Sources */,
+				33C7EA462C19DE50000AC255 /* ContaViewController.swift in Sources */,
 				33A4C4A72BEE71930035F540 /* RegisterViewController.swift in Sources */,
 				33A0B9ED2C060A970024761F /* TabBarViewController.swift in Sources */,
 				33FCB70B2C05159100ECF113 /* HomeScreen.swift in Sources */,
@@ -401,6 +408,7 @@
 				33B2DE472BEABAFB00A8D32A /* LoginScreen.swift in Sources */,
 				337797892C1233A800E661E5 /* Menu.swift in Sources */,
 				337797862C122F9500E661E5 /* MenuCellScreen.swift in Sources */,
+				33C7EA482C19DE60000AC255 /* ContaScreen.swift in Sources */,
 				337797842C122EB000E661E5 /* MenuTableViewCell.swift in Sources */,
 				33A0B9F32C06893E0024761F /* MovieCellScreen.swift in Sources */,
 				33A0B9F02C06819B0024761F /* MoviesViewTableViewCell.swift in Sources */,

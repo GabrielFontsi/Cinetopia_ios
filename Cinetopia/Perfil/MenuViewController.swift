@@ -20,7 +20,6 @@ class MenuViewController: UIViewController {
         super.viewDidLoad()
         self.menuScreen?.configTableViewDelegate(delegate: self, dataSource: self)
     }
-    
 }
 
 extension MenuViewController: UITableViewDelegate,UITableViewDataSource {
@@ -43,6 +42,15 @@ extension MenuViewController: UITableViewDelegate,UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        if indexPath.row == 0 {
+            let conta = ContaViewController()
+            navigationController?.pushViewController(conta, animated: true)
+            
+        } else if indexPath.row == 1 {
+            
+        } else  if indexPath.row == 2 {
+            
+        }
         // Ação ao selecionar uma célula
     }
     

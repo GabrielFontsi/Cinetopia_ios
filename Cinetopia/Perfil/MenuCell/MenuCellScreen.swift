@@ -22,7 +22,6 @@ class MenuCellScreen: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .systemFont(ofSize: 18, weight: .semibold)
         label.textColor = .black
-        
         return label
     }()
 
