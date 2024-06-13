@@ -7,13 +7,25 @@
 
 import UIKit
 
+protocol ContaScreenProtocol: class {
+    func actionLibriryButton()
+    func actionCameraButton()
+}
+
 class ContaScreen: UIView {
+    
+    weak private var delegate: ContaScreenProtocol?
+    
+    func delegate(delegate: ContaScreenProtocol?){
+        self.delegate = delegate
+    }
     
     lazy var imagePerfilUIimageView: UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
+        image.image = UIImage(systemName: "person.circle.fill")
         image.backgroundColor = .white
-        image.contentMode = .scaleAspectFit
+        image.contentMode = .scaleAspectFill
         image.layer.cornerRadius = 60
         image.layer.masksToBounds = true
         return image
@@ -62,8 +74,6 @@ class ContaScreen: UIView {
         
         button.backgroundColor = UIColor.white
         button.addTarget(self, action: #selector(tapCameraPhotoButton), for: .touchUpInside)
-       
-        
         return button
     }()
     
@@ -119,7 +129,7 @@ class ContaScreen: UIView {
         button.addTarget(self, action: #selector(tapSaveInformationButton), for: .touchUpInside)
         return button
     }()
-
+        
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.setupBackground()
@@ -186,11 +196,11 @@ class ContaScreen: UIView {
     }
     
     @objc private func tapLibriryPhotoButton(){
-        print("botão abrir biblioteca clicado")
+        self.delegate?.actionLibriryButton()
     }
     
     @objc private func tapCameraPhotoButton(){
-        print("botão abrir camera clicado")
+        self.delegate?.actionCameraButton()
     }
     
     @objc func togglePasswordVisibility() {
