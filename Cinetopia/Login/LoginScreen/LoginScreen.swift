@@ -46,7 +46,7 @@ class LoginScreen: UIView {
         
         textField.textColor = UIColor(named: "BackgroundColor")
        
-        textField.layer.shadowColor = UIColor.black.cgColor
+        textField.layer.shadowColor = UIColor.white.cgColor
         textField.layer.shadowOffset = CGSize(width: 0, height: 2)
         textField.layer.shadowOpacity = 0.4
         textField.layer.shadowRadius = 3.0
@@ -67,7 +67,7 @@ class LoginScreen: UIView {
         
         textField.textColor = UIColor(named: "BackgroundColor")
         textField.translatesAutoresizingMaskIntoConstraints = false
-        textField.layer.shadowColor = UIColor.black.cgColor
+        textField.layer.shadowColor = UIColor.white.cgColor
         textField.layer.shadowOffset = CGSize(width: 0, height: 2)
         textField.layer.shadowOpacity = 0.4
         textField.layer.shadowRadius = 3.0
@@ -90,6 +90,14 @@ class LoginScreen: UIView {
         button.backgroundColor = UIColor(named: "ButtonBackgroundColor") // Definir cor
         button.titleLabel?.font = .boldSystemFont(ofSize: 20) // Definir fonte e estilo da fonte
         button.addTarget(self, action: #selector(tapLoginButton), for: .touchUpInside)
+        button.layer.cornerRadius = 25
+        
+        button.layer.shadowColor = UIColor.white.cgColor
+        button.layer.shadowOffset = CGSize(width: 0, height: 2)
+        button.layer.shadowOpacity = 0.4
+        button.layer.shadowRadius = 3.0
+        button.layer.masksToBounds = false
+        
         return button
     }()
     
@@ -99,6 +107,9 @@ class LoginScreen: UIView {
         button.setTitle("Não tem conta? Cadastre-se", for: .normal)
         button.titleLabel?.font = .boldSystemFont(ofSize: 18)
         button.addTarget(self, action: #selector(tapRegisterButton), for: .touchUpInside)
+        
+      
+        
         return button
     }()
     

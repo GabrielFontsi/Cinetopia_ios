@@ -10,6 +10,7 @@ import UIKit
 class ContaViewController: UIViewController {
     
     var contaScreen: ContaScreen?
+    var alert: Alert?
     var imagePicker: UIImagePickerController = UIImagePickerController()
     
     override func loadView() {
@@ -19,6 +20,7 @@ class ContaViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        alert = Alert(controller: self)
         self.contaScreen?.delegate(delegate: self)
         self.configImagePicker()
         
@@ -26,35 +28,40 @@ class ContaViewController: UIViewController {
     
     func configImagePicker(){
         imagePicker.delegate = self
+        self.imagePicker.allowsEditing = false
     }
     
 
 }
 
 extension ContaViewController: ContaScreenProtocol {
-    func actionLibriryButton() {
+    func actionEditPhotoButton() {
         print("botao clique")
+        self.alert?.chooseImage(completion: { option in
+            switch option {
+            case .camera:
+                if UIImagePickerController.isSourceTypeAvailable(.camera) {
+                    self.imagePicker.sourceType = .camera
+                } else {
+                    self.imagePicker.sourceType = .photoLibrary
+                }
+                self.present(self.imagePicker, animated: true)
+            case .library:
+                self.imagePicker.sourceType = .photoLibrary
+                self.present(self.imagePicker, animated: true)
+            case .cancel:
+                break
+            }
+        })
+    }
+    
+    func actionLibriryButton() {
+      
         
-        self.imagePicker.allowsEditing = false
-        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
-            imagePicker.sourceType = .photoLibrary
-        } else {
-            imagePicker.sourceType = .camera
-        }
-        
-        present(imagePicker, animated: true)
     }
     
     func actionCameraButton() {
         print("botao clique cameraaa")
-        self.imagePicker.allowsEditing = false
-        if UIImagePickerController.isSourceTypeAvailable(.camera) {
-            imagePicker.sourceType = .camera
-        } else {
-            imagePicker.sourceType = .photoLibrary
-        }
-        
-        present(imagePicker, animated: true)
     }
     
     

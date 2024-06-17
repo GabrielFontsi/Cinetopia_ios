@@ -50,9 +50,15 @@ class SplashScreen: UIView {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Quero começar", for: .normal)
         button.backgroundColor = UIColor(named: "ButtonBackgroundColor")
-        button.titleLabel?.font = .boldSystemFont(ofSize: 20)
-        button.layer.cornerRadius = 32
+        button.titleLabel?.font = .boldSystemFont(ofSize: 18)
+        button.layer.cornerRadius = 25
         button.addTarget(self, action: #selector(welcomeButtonPressed), for: .touchUpInside)
+        
+        button.layer.shadowColor = UIColor.white.cgColor
+        button.layer.shadowOffset = CGSize(width: 0, height: 2)
+        button.layer.shadowOpacity = 0.4
+        button.layer.shadowRadius = 3.0
+        button.layer.masksToBounds = false
         return button
     }()
     
@@ -91,9 +97,9 @@ class SplashScreen: UIView {
             self.stackView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             self.stackView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -64),
             
-            self.welcomeButton.heightAnchor.constraint(equalToConstant: 64),
-            self.welcomeButton.leadingAnchor.constraint(equalTo: stackView.leadingAnchor, constant: 64),
-            self.welcomeButton.trailingAnchor.constraint(equalTo: stackView.trailingAnchor, constant: -64),
+            self.welcomeButton.heightAnchor.constraint(equalToConstant: 50),
+            self.welcomeButton.leadingAnchor.constraint(equalTo: stackView.leadingAnchor, constant: 18),
+            self.welcomeButton.trailingAnchor.constraint(equalTo: stackView.trailingAnchor, constant: -18),
         ])
     }
     

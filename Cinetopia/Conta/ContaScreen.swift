@@ -10,6 +10,7 @@ import UIKit
 protocol ContaScreenProtocol: class {
     func actionLibriryButton()
     func actionCameraButton()
+    func actionEditPhotoButton()
 }
 
 class ContaScreen: UIView {
@@ -41,6 +42,15 @@ class ContaScreen: UIView {
         return stackView
     }()
     
+    lazy var editPhotoButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle("Editar foto", for: .normal)
+        button.setTitleColor(UIColor.white, for: .normal)
+        button.addTarget(self, action: #selector(tapEditPhotpButton), for: .touchUpInside)
+        return button
+    }()
+    
     lazy var libraryPhotoButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -48,7 +58,7 @@ class ContaScreen: UIView {
         button.setTitleColor(UIColor.black, for: .normal)
         button.layer.cornerRadius = 5
         
-        button.layer.shadowColor = UIColor.black.cgColor
+        button.layer.shadowColor = UIColor.white.cgColor
         button.layer.shadowOffset = CGSize(width: 0, height: 2)
         button.layer.shadowOpacity = 0.4
         button.layer.shadowRadius = 3.0
@@ -66,7 +76,7 @@ class ContaScreen: UIView {
         button.setTitleColor(UIColor.black, for: .normal)
         button.layer.cornerRadius = 5
         
-        button.layer.shadowColor = UIColor.black.cgColor
+        button.layer.shadowColor = UIColor.white.cgColor
         button.layer.shadowOffset = CGSize(width: 0, height: 2)
         button.layer.shadowOpacity = 0.4
         button.layer.shadowRadius = 3.0
@@ -84,7 +94,7 @@ class ContaScreen: UIView {
         textField.backgroundColor = .white
         textField.keyboardType = .emailAddress
         textField.borderStyle = .roundedRect
-        textField.layer.shadowColor = UIColor.black.cgColor
+        textField.layer.shadowColor = UIColor.white.cgColor
         textField.layer.shadowOffset = CGSize(width: 0, height: 2)
         textField.layer.shadowOpacity = 0.4
         textField.layer.shadowRadius = 3.0
@@ -102,7 +112,7 @@ class ContaScreen: UIView {
         textField.placeholder = "Digite sua senha"
         textField.textColor = UIColor(named: "BackgroundColor")
         
-        textField.layer.shadowColor = UIColor.black.cgColor
+        textField.layer.shadowColor = UIColor.white.cgColor
         textField.layer.shadowOffset = CGSize(width: 0, height: 2)
         textField.layer.shadowOpacity = 0.4
         textField.layer.shadowRadius = 3.0
@@ -122,9 +132,17 @@ class ContaScreen: UIView {
     lazy var saveInformationButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.backgroundColor = UIColor(named: "ButtonBackgroundColor")
         button.setTitle("Salvar informações", for: .normal)
-        button.setTitleColor(UIColor.black, for: .normal)
-        button.backgroundColor = UIColor.white
+        button.setTitleColor(UIColor.white, for: .normal)
+        button.layer.cornerRadius = 25
+        
+        button.layer.shadowColor = UIColor.white.cgColor
+        button.layer.shadowOffset = CGSize(width: 0, height: 2)
+        button.layer.shadowOpacity = 0.4
+        button.layer.shadowRadius = 3.0
+        button.layer.masksToBounds = false
+        
         //button.titleLabel?.font = .boldSystemFont(ofSize: 18)
         button.addTarget(self, action: #selector(tapSaveInformationButton), for: .touchUpInside)
         return button
@@ -148,7 +166,8 @@ class ContaScreen: UIView {
     
     private func setupLayout(){
         self.addSubview(self.imagePerfilUIimageView)
-        self.addSubview(self.stackView)
+        self.addSubview(self.editPhotoButton)
+        //self.addSubview(self.stackView)
         self.addSubview(self.emailTextField)
         self.addSubview(self.passwordTextField)
         self.addSubview(self.saveInformationButton)
@@ -162,11 +181,16 @@ class ContaScreen: UIView {
             self.imagePerfilUIimageView.widthAnchor.constraint(equalToConstant: 120),
             self.imagePerfilUIimageView.heightAnchor.constraint(equalToConstant: 120),
             
-            self.stackView.topAnchor.constraint(equalTo: self.imagePerfilUIimageView.bottomAnchor, constant: 18),
-            self.stackView.heightAnchor.constraint(equalToConstant: 55),
-            self.stackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 12),
-            self.stackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -12),
-    
+            self.editPhotoButton.topAnchor.constraint(equalTo: self.imagePerfilUIimageView.bottomAnchor, constant: 5),
+            self.editPhotoButton.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            self.editPhotoButton.heightAnchor.constraint(equalToConstant: 50),
+           
+            
+//            self.stackView.topAnchor.constraint(equalTo: self.imagePerfilUIimageView.bottomAnchor, constant: 18),
+//            self.stackView.heightAnchor.constraint(equalToConstant: 55),
+//            self.stackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 12),
+//            self.stackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -12),
+//
 //            self.libraryPhotoButton.topAnchor.constraint(equalTo: self.imagePerfilUIimageView.bottomAnchor, constant: 18),
 //            self.libraryPhotoButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 12),
 //            self.libraryPhotoButton.trailingAnchor.constraint(equalTo: self.cameraPhotoButton.leadingAnchor, constant: 12),
@@ -178,9 +202,9 @@ class ContaScreen: UIView {
 //            self.cameraPhotoButton.heightAnchor.constraint(equalToConstant: 45),
 //            self.cameraPhotoButton.widthAnchor.constraint(equalToConstant: 45),
             
-            self.emailTextField.topAnchor.constraint(equalTo: self.stackView.bottomAnchor, constant: 18),
-            self.emailTextField.leadingAnchor.constraint(equalTo: self.stackView.leadingAnchor),
-            self.emailTextField.trailingAnchor.constraint(equalTo: self.stackView.trailingAnchor),
+            self.emailTextField.topAnchor.constraint(equalTo: self.editPhotoButton.bottomAnchor, constant: 18),
+            self.emailTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 12),
+            self.emailTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -12),
             self.emailTextField.heightAnchor.constraint(equalToConstant: 40),
             
             self.passwordTextField.topAnchor.constraint(equalTo: self.emailTextField.bottomAnchor, constant: 12),
@@ -189,10 +213,15 @@ class ContaScreen: UIView {
             self.passwordTextField.heightAnchor.constraint(equalToConstant: 40),
             
             self.saveInformationButton.topAnchor.constraint(equalTo: self.passwordTextField.bottomAnchor, constant: 32),
-            self.saveInformationButton.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            self.saveInformationButton.heightAnchor.constraint(equalToConstant: 45),
-            self.saveInformationButton.widthAnchor.constraint(equalToConstant: 200)
+            self.saveInformationButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 18),
+            self.saveInformationButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -18),
+            self.saveInformationButton.heightAnchor.constraint(equalToConstant: 50),
+            
         ])
+    }
+    
+    @objc private func tapEditPhotpButton(){
+        self.delegate?.actionEditPhotoButton()
     }
     
     @objc private func tapLibriryPhotoButton(){
